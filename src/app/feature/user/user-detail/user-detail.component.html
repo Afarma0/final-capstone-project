@@ -1,0 +1,21 @@
+<app-menu></app-menu><div *ngIf="user" class="component">
+    <section class="heading">
+      <span class="page-title font-weight-bold font-italic">{{ title }}</span>
+      <span> | <a routerLink="/user-list">Return to List</a></span>
+    </section>
+  
+    <table class="table table-sm">
+      <tr><td>ID:</td><td>{{ user.id }}</td></tr>
+      <tr><td>Username:</td><td>{{ user.username }}</td></tr>
+      <tr><td>Full Name:</td><td>{{ user.firstName }} {{ user.lastName }}</td></tr>
+      <tr><td>Phone:</td><td>{{ user.phoneNumber }}</td></tr>
+      <tr><td>Email:</td><td>{{ user.email }}</td></tr>
+      <tr><td>Reviewer:</td><td>{{ user.reviewer }}</td></tr>
+      <tr><td>Admin:</td><td>{{ user.admin }}</td></tr>
+    </table>
+  
+    <a routerLink="/user-edit/{{ user.id }}" class="btn btn-sm btn-warning">Edit</a>
+    |
+    <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button>
+  </div>
+  

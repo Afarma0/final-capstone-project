@@ -1,0 +1,57 @@
+<app-menu></app-menu><div class="p-4" *ngIf="request">
+  <h1>{{ title }}</h1>
+
+  <!-- Request Info -->
+  <table class="table table-sm mb-4">
+    <tr><td><strong>ID:</strong></td><td>{{ request.id }}</td></tr>
+    <tr><td><strong>User:</strong></td><td>{{ request.user?.username }}</td></tr>
+    <tr><td><strong>Request Number:</strong></td><td>{{ request.requestNumber }}</td></tr>
+    <tr><td><strong>Description:</strong></td><td>{{ request.description }}</td></tr>
+    <tr><td><strong>Total: </strong></td><td>{{request.total | currency}}</td></tr>
+  </table>
+
+
+  <section class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Line Items</h2>
+    <a [routerLink]="['/line-item-create', request.id]">
+      <img src="/images/add-icon.png" width="20" height="20" title="Add Line Item" />
+    </a>
+  </section>
+
+  <!-- Line Items Table -->
+  <table class="table table-sm" *ngIf="lineItems.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Price</th> 
+        <th>Quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let li of lineItems">
+        <td>{{ li.id }}</td>
+        <td>{{ li.product?.name }}</td>
+        <td>{{ li.product?.price | currency }}</td> 
+        <td>{{ li.quantity }}</td>
+        <td>
+          <a [routerLink]="['/line-item-edit', li.id]">
+            <img src="/images/pencil-icon.png" width="20" height="20" title="Edit Line Item" />
+          </a> |
+          <a [routerLink]="['/line-item-detail', li.id]">
+            <img src="/images/details.png" width="20" height="20" title="Line Item Details" />
+          </a>
+        </td>
+      </tr>
+      <!-- Submit Request Button -->
+<button 
+(click)="submitRequest()" 
+class="btn btn-success mt-3" 
+[disabled]="request.status !== 'NEW' || lineItems.length === 0">
+Submit Request
+</button>
+
+    </tbody>
+  </table>
+</div>

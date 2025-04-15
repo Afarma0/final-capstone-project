@@ -1,0 +1,12 @@
+<app-menu></app-menu><div class="container">
+  <h2>Line Item Details</h2>
+  <div *ngIf="lineItem">
+    <p><strong>ID:</strong> {{ lineItem.id }}</p>
+    <p><strong>Request ID:</strong> {{ lineItem.request.id }}</p>
+    <p><strong>Product ID:</strong> {{ lineItem.product.id }}</p>
+    <p><strong>Quantity:</strong> {{ lineItem.quantity }}</p>
+  </div>
+
+  <a [routerLink]="['/line-item-edit', lineItem.id]" class="btn btn-warning">Edit</a>
+  <button (click)="delete()" class="btn btn-sm btn-danger ms-2">Delete</button>
+</div>

@@ -1,0 +1,22 @@
+<app-menu></app-menu><div class="p-4">
+    <h1>{{ title }}</h1>
+    <table>
+      <tr><td>Code:</td><td><input [(ngModel)]="newVendor.code" /></td></tr>
+      <tr><td>Name:</td><td><input [(ngModel)]="newVendor.name" /></td></tr>
+      <tr><td>Address:</td><td><input [(ngModel)]="newVendor.address" /></td></tr>
+      <tr><td>City:</td><td><input [(ngModel)]="newVendor.city" /></td></tr>
+      <tr>
+        <td>State:</td>
+        <td>
+          <select [(ngModel)]="newVendor.state">
+            <option *ngFor="let s of states" [ngValue]="s">{{ s }}</option>
+          </select>
+        </td>
+      </tr>
+      <tr><td>Zip:</td><td><input [(ngModel)]="newVendor.zip" /></td></tr>
+      <tr><td>Phone:</td><td><input [(ngModel)]="newVendor.phoneNumber" /></td></tr>
+      <tr><td>Email:</td><td><input [(ngModel)]="newVendor.email" /></td></tr>
+    </table>
+    <button (click)="addVendor()">Add Vendor</button>
+  </div>
+  

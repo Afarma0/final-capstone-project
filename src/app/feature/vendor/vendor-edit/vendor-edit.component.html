@@ -1,0 +1,22 @@
+<app-menu></app-menu><div class="p-4" *ngIf="vendor">
+    <h1>{{ title }}</h1>
+    <table>
+      <tr><td>Code:</td><td><input [(ngModel)]="vendor.code" /></td></tr>
+      <tr><td>Name:</td><td><input [(ngModel)]="vendor.name" /></td></tr>
+      <tr><td>Address:</td><td><input [(ngModel)]="vendor.address" /></td></tr>
+      <tr><td>City:</td><td><input [(ngModel)]="vendor.city" /></td></tr>
+      <tr>
+        <td>State:</td>
+        <td>
+          <select [(ngModel)]="vendor.state">
+            <option *ngFor="let s of states" [ngValue]="s">{{ s }}</option>
+          </select>
+        </td>
+      </tr>
+      <tr><td>Zip:</td><td><input [(ngModel)]="vendor.zip" /></td></tr>
+      <tr><td>Phone:</td><td><input [(ngModel)]="vendor.phoneNumber" /></td></tr>
+      <tr><td>Email:</td><td><input [(ngModel)]="vendor.email" /></td></tr>
+    </table>
+    <button (click)="save()">Save</button>
+  </div>
+  

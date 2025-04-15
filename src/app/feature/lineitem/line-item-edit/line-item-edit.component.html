@@ -1,0 +1,39 @@
+<app-menu></app-menu><div class="p-4" *ngIf="lineItem">
+  <h2>Edit Line Item</h2>
+  <form (ngSubmit)="save()">
+    <table class="table table-sm">
+      <tr>
+        <td>Request ID:</td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="lineItem.request.id"
+            name="request"
+            class="form-control"
+            disabled
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Product ID:</td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="lineItem.product.id"
+            name="product"
+            class="form-control"
+            required
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Quantity:</td>
+        <td>
+          <input type="number" [(ngModel)]="lineItem.quantity" name="quantity" class="form-control" min="1" step="1" required />
+
+        </td>
+      </tr>
+    </table>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>

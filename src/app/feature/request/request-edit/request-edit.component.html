@@ -1,0 +1,13 @@
+<app-menu></app-menu><div class="p-4" *ngIf="request">
+    <h1>{{ title }}</h1>
+    <table>
+      <tr><td>Description:</td><td><input [(ngModel)]="request.description" /></td></tr>
+      <tr><td>Justification:</td><td><input [(ngModel)]="request.justification" /></td></tr>
+      <tr><td>Delivery Mode:</td><td><input [(ngModel)]="request.deliveryMode" /></td></tr>
+      <tr><td>Status:</td><td><input [(ngModel)]="request.status" disabled /></td></tr>
+      <tr><td>Total:</td><td><input [(ngModel)]="request.total" disabled /></td></tr>
+      <tr><td>Reason For Rejection:</td><td><input [(ngModel)]="request.reasonForRejection" /></td></tr>
+    </table>
+    <button (click)="save()">Save</button>
+  </div>
+  

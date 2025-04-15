@@ -39,26 +39,38 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
-          "options": {
-            "outputPath": "dist/final-capstone-project",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
-          },
+  "builder": "@angular-devkit/build-angular:application",
+  "options": {
+    "outputPath": "dist/final-capstone-project",
+    "index": "src/index.html",
+    "browser": "src/main.ts",
+    "polyfills": [
+      "zone.js"
+    ],
+    "tsConfig": "tsconfig.app.json",
+    "assets": [
+      {
+        "glob": "**/*",
+        "input": "public",
+        "output": "images"
+      },
+      {
+        "glob": "**/*",
+        "input": "src/assets",
+        "output": "assets"
+      },
+      {
+        "glob": "favicon.ico",
+        "input": "src",
+        "output": "/"
+      }
+    ],
+    "styles": [
+      "src/styles.css"
+    ],
+    "scripts": []
+  },
+
           "configurations": {
             "production": {
               "budgets": [
@@ -120,5 +132,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9bb0e07d-f053-4550-8460-126aed2961d9"
   }
 }

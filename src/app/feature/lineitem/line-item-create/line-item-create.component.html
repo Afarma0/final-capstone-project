@@ -1,0 +1,23 @@
+<app-menu></app-menu><div class="p-4" *ngIf="lineItem">
+  <h1>{{ title }}</h1>
+  <table class="table table-sm">
+    <tr>
+      <td>Request ID:</td>
+      <td><input [(ngModel)]="lineItem.request.id" name="requestId" disabled /></td>
+    </tr>
+    <tr>
+      <td>Product:</td>
+      <td>
+        <select [(ngModel)]="lineItem.product.id" name="productId">
+          <option *ngFor="let p of products" [value]="p.id">{{ p.name }}</option>
+        </select>
+        
+      </td>
+    </tr>
+    <tr>
+      <td>Quantity:</td>
+      <input type="number" [(ngModel)]="lineItem.quantity" name="quantity" class="form-control" min="1" step="1" required />
+    </tr>
+  </table>
+  <button (click)="createLineItem()" class="btn btn-primary">Create</button>
+</div>
